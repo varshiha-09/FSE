@@ -1,4 +1,4 @@
-import unittest
+import unittest,json
 
 from git_exercise.users.users_api import users_api
 from git_exercise.users.users_gateway import UsersGateway
@@ -26,3 +26,14 @@ class TestUsersApi(unittest.TestCase):
         response = self.client.get("/users/2345")
 
         self.assertEqual(404, response.status_code)
+
+    def test_create_user(self):
+        response = self.client.post(
+            "/users", 
+            data=json.dumps({"name": "Kate Etak", "email": "kate@example.com"}), 
+            content_type="application/json"
+        )
+
+        self.assertEqual(response.status_code, 201) 
+        self.assertIn("id", response.json)  
+        self.assertIsInstance(response.json["id"], int)

@@ -21,3 +21,10 @@ class UsersGateway:
     
     def list(self):
         return self.users
+    
+    def create_user(self, name:str, email:str):
+        new_id = self.users[-1].id + 1 if self.users else 1
+        new_user = User(id=new_id, name=name, email=email)
+        self.users.append(new_user)
+        return new_id
+    
