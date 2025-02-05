@@ -14,13 +14,13 @@ class TestUsersApi(unittest.TestCase):
         response = self.client.get("/users")
 
         self.assertEqual(200, response.status_code)
-        self.assertIn({"id": 1, "name": "Fred Derf"}, response.json)
+        self.assertIn({"id": 1, "name": "Fred Derf","is_admin":True}, response.json)
 
     def test_find(self):
         response = self.client.get("/users/2")
 
         self.assertEqual(200, response.status_code)
-        self.assertEqual({"id": 2, "name": "Mary Yram"}, response.json)
+        self.assertEqual({"id": 2, "name": "Mary Yram","is_admin":False}, response.json)
 
     def test_find_not_found(self):
         response = self.client.get("/users/2345")

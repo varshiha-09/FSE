@@ -11,10 +11,10 @@ class TestUsersGateway(unittest.TestCase):
         result = gateway.list()
 
         self.assertEqual(4, len(result))
-        self.assertIn(User(id=1, name="Fred Derf"), result)
+        self.assertIn(User(id=1, name="Fred Derf",is_admin=True), result)
 
     def test_find(self):
         gateway = UsersGateway()
 
-        self.assertEqual(User(id=2, name="Mary Yram"), gateway.find(2))
+        self.assertEqual(User(id=2, name="Mary Yram",is_admin=False), gateway.find(2))
         self.assertIsNone(gateway.find(1234))
