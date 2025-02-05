@@ -39,3 +39,19 @@ class TestUsersGateway(unittest.TestCase):
 
 
         self.assertEqual(len(gateway.list()), 5)
+    
+    def test_update_user(self):
+        gateway = UsersGateway()
+        updated_user_data = {
+            "name": "Kate Etak Updated",
+            "email": "kateupdated@example.com"
+        }
+
+        gateway.update_user(2, updated_user_data["name"], updated_user_data["email"])
+        updated_user = gateway.find(2)
+
+        self.assertIsNotNone(updated_user)
+        self.assertEqual(updated_user.name, updated_user_data["name"])
+        self.assertEqual(updated_user.email, updated_user_data["email"])
+
+

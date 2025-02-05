@@ -27,3 +27,11 @@ class UsersGateway:
         new_user = User(id=new_id, name=name, email=email)
         self.users.append(new_user)
         return new_id
+    
+    def update_user(self, user_id: int, name: str, email: str) -> User:
+        user = self.find(user_id)
+        if user:
+            user.name = name
+            user.email = email
+            return {"id": user.id, "name": user.name, "email": user.email}
+        return None
