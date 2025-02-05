@@ -6,10 +6,10 @@ class UsersGateway:
     
     def __init__(self):
         self.users = [
-            User(id=1, name="Fred Derf"),
-            User(id=2, name="Mary Yram"),
-            User(id=3, name="Jane Enaj"),
-            User(id=4, name="John Nhoj"),
+            User(id=1, name="Fred Derf",email="fred@gmail.com"),
+            User(id=2, name="Mary Yram",email="mary@gmail.com"),
+            User(id=3, name="Jane Enaj",email="jane@gmail.com"),
+            User(id=4, name="John Nhoj",email="john@gmail.com"),
         ]
     
     def find(self, user_id: int) -> User | None:
