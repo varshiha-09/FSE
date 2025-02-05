@@ -17,6 +17,13 @@ def users_api(users_gateway: UsersGateway) -> Blueprint:
             abort(404)
 
         return jsonify(user)
-
-
+    
+    @api.route("/users", methods=["POST"])
+    def create_user():
+        data = request.get_json()
+        if not data or "name" not in data or "email" not in data:
+            return jsonify({"error": "Missing required fields"}), 400
+        new_user_id = users_gateway.add_user(data["name"], data["email"])
+        return jsonify({"id": new_user_id}), 201
     return api
+
