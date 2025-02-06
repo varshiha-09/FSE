@@ -6,10 +6,10 @@ class UsersGateway:
     
     def __init__(self):
         self.users = [
-            User(id=1, name="Fred Derf",email="fred@gmail.com"),
-            User(id=2, name="Mary Yram",email="mary@gmail.com"),
-            User(id=3, name="Jane Enaj",email="jane@gmail.com"),
-            User(id=4, name="John Nhoj",email="john@gmail.com"),
+            User(id=1, name="Fred Derf",email="fred@gmail.com",is_admin=True),
+            User(id=2, name="Mary Yram",email="mary@gmail.com",is_admin=False),
+            User(id=3, name="Jane Enaj",email="jane@gmail.com",is_admin=False),
+            User(id=4, name="John Nhoj",email="john@gmail.com",is_admin=False),
         ]
     
     def find(self, user_id: int) -> User | None:
@@ -22,9 +22,9 @@ class UsersGateway:
     def list(self):
         return self.users
     
-    def add_user(self, name: str, email: str) -> int:
+    def add_user(self, name: str, email: str,is_admin:bool) -> int:
         new_id = self.users[-1].id + 1 if self.users else 1
-        new_user = User(id=new_id, name=name, email=email)
+        new_user = User(id=new_id, name=name, email=email, is_admin=False)
         self.users.append(new_user)
         return new_id
     

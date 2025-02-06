@@ -1,9 +1,4 @@
 git init
 git add .
 git commit -m "Initial commit"
-git push origin main
-git tag -a v1.0.0 -m "Release version 1.0.0"
-git add .
-git commit -m "added email field"
-git push origin main
-git commit -m "Added POST endpoint and testcases"
+

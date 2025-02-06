@@ -11,22 +11,22 @@ class TestUsersGateway(unittest.TestCase):
         result = gateway.list()
 
         self.assertEqual(4, len(result))
-        self.assertIn(User(id=1, name="Fred Derf",email="fred@gmail.com"), result)
+        self.assertIn(User(id=1, name="Fred Derf",email="fred@gmail.com",is_admin=True), result)
 
     def test_find(self):
         gateway = UsersGateway()
 
-        self.assertEqual(User(id=2, name="Mary Yram",email="mary@gmail.com"), gateway.find(2))
+        self.assertEqual(User(id=2, name="Mary Yram",email="mary@gmail.com",is_admin=False), gateway.find(2))
         self.assertIsNone(gateway.find(1234))
-
     def test_add_user(self):
         gateway = UsersGateway()
         new_user_data = {
             "name": "Kate Etak",
-            "email": "kate@example.com"
+            "email": "kate@example.com",
+            "is_admin": False,
         }
 
-        new_user_id = gateway.add_user(new_user_data["name"], new_user_data["email"])
+        new_user_id = gateway.add_user(new_user_data["name"], new_user_data["email"], new_user_data["is_admin"])
         response = {"id": new_user_id}
 
         self.assertIn("id", response)
