@@ -52,4 +52,4 @@ Git push origin v1.1.1
 Git branch --delete add-admin-role
 Git branch -D add-admin-role
 Git push origin --delete add-admin-role
-git log --online --graph --all
+git log --oneline --graph --all
