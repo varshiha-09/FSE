@@ -1,4 +1,55 @@
 git init
 git add .
 git commit -m "Initial commit"
-
+git push -u origin main
+git tag -a v1.0.0 -m "Release version 1.0.0"
+git push origin v1.0.0
+git status
+git add .
+git commit -m "Added email field"
+git push
+git add .
+git commit -m "Added PUT request"
+git push
+git status
+git add .
+git commit -m "Added POST endpoint and testcases"
+git push
+git tag "v1.1.0"
+git push origin v1.1.0
+git add .
+git commit -m "Updated git-commands.log before switching branches"
+git push origin main
+git checkout v1.0.0
+git branch add-admin-role
+git checkout add-admin-role 
+git push --set-upstream origin add-admin-role
+Git add .
+git commit -m " is_admin attribte added"
+git push
+Git tag v1.0.1
+Git push
+Git tag
+git tag -a v1.0.1 
+git push origin add-admin-role
+git push origin v1.0.1
+Git branch
+Git fetch origin
+Git rebase main
+Git add .
+Git rebase --continue
+Git status
+Git checkout main
+Git status
+Git add .
+git commit -m "Additional HotFix Changes"
+git branch
+Git checkout main
+Git merge --ff-only add-admin-role
+git tag  v1.1.1 
+Git push origin main
+Git push origin v1.1.1
+Git branch --delete add-admin-role
+Git branch -D add-admin-role
+Git push origin --delete add-admin-role
+git log --online --graph --all
